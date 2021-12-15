@@ -63,13 +63,25 @@ function createGridSquares (userInput) {
 // initialize the grid with 100x100 square grid
 createGridSquares(100);
 
+// Assign multiple colors to the sketch 
+document.getElementById("border").addEventListener("click", function() {
+    changeColor()
+});
+
+function changeColor () {
+    for (i=0; i<eachSquare.length; i++) {
+        eachSquare[i].addEventListener("mouseover", function (e) {
+            e.target.style.background = '#'+Math.floor(Math.random()*16777215).toString(16);
+        });
+    }
+}
+
 // Set color for mouse to hover and draw on the sketch pad 
 const eachSquare = document.getElementsByClassName("squares");
 
 for (i=0; i<eachSquare.length; i++) {
     eachSquare[i].addEventListener("mouseover", function (e) {
         e.target.style.background = "black";
-        e.target.style.color = "red";
     });
 }
 
